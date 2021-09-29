@@ -1,0 +1,33 @@
+body {
+    margin-top: 10px;
+    background-image: url("background.jpg");
+}
+
+#vaccForm {
+    background-color: lightgray;
+    font-size: 20px;
+    width: 40%;
+    margin: auto;
+    padding: 15px;
+    margin-top: 50px;
+    border-radius: 25px;
+}
+
+#vaccForm label {
+    margin-bottom: 5px;
+}
+
+#vaccForm input {
+    margin-bottom: 10px;
+    height: 20px;
+    padding: 5px;
+}
+
+#vaccForm select {
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+#vaccForm button {
+    height: 30px;
+}

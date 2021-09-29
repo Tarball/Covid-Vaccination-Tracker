@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>COVID Info</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='input.css'>
+</head>
+<body>
+    <!-- Container for vaccination form -->
+    <div id="vaccForm">
+        <form id="vaccInfo">
+            <label for="fName">First Name</label><br>
+            <input type="text" id="fName" name="fName"><br>
+            <label for="mName">Middle Name</label><br>
+            <input type="text" id="mName" name="mName"><br>
+            <label for="lName">Last Name</label><br>
+            <input type="text" id="lName" name="lName"><br>
+            <label for="dob">Date of Birth</label><br>
+            <input type="text" id="dob" name="dob"><br>
+            <label for="patientNumber">Patient Number</label><br>
+            <input type="text" id="patientNumber" name="patientNumber"><br>
+            <label for="vaccine">Vaccine Manufacturer</label><br>
+            <select id="vaccine" name="vaccine" class="required">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="moderna">Moderna</option>
+                <option value="pfizer">Pfizer</option>
+                <option value="johnson&johnson">Johnson and Johnson</option>
+            </select><br>
+            <label for="vDate1">Date of first vaccination</label><br>
+            <input type="text" id="vDate1" name="vDate1"><br>
+            <label for="vDate2">Date of second vaccination</label><br>
+            <input type="text" id="vDate2" name="vDate2"><br>
+            <label for="street">Street Name</label><br>
+            <input type="text" id="street" name="street"><br>
+            <label for="state">State</label><br>
+            <input type="text" id="state" name="state"><br>
+            <label for="zip">Zipcode</label><br>
+            <input type="text" id="zip" name="zip"><br>
+
+            <button type="button" onclick="confirm()">Submit</button>   
+        </form>
+    </div>
+    <script>
+        function confirm() {
+
+            // Pattern use to check for symbols in match function
+            var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
+            // Pattern used to check format of street address
+            var streetFormat = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,<>\/?~]/;
+
+            // Pattern use to test for numbers in match function
+            var numbers = /^[0-9]+$/;
+
+            // Variables to assign if a parameter is correct or not
+            var fNameCorrect = false;
+            var lNameCorrect = false;
+            var mNameCorrect = false;
+            var patientNumberCorrect = false;
+            var vaccineCorrect = false;
+            var zipCorrect = false;
+            var streetCorrect = false;
+
+            /* Validate first name */
+            if ((document.getElementById("fName").value=="") || (document.getElementById("fName").value=="Must be filled out") || (document.getElementById("fName").value == "Name cannot contain numbers")) {
+                fNameCorrect = false;
+                document.getElementById("fName").style.backgroundColor="#FFCCCC";
+                document.getElementById("fName").value="Must be filled out";
+            } else if ((document.getElementById("fName").value.match(numbers)) || (document.getElementById("fName").value.match(format))) {
+                fNameCorrect = false;
+                document.getElementById("fName").style.backgroundColor="#FFCCCC";
+                document.getElementById("fName").value = "Name cannot contain numbers";
+            } else {
+                document.getElementById("fName").style.backgroundColor="";
+                fNameCorrect = true;
+            }
+
+            /* Validate middle name */
+            if ((document.getElementById("mName").value == "") || (document.getElementById("mName").value == "Must be filled out") || (document.getElementById("mName").value == "Name cannot contain numbers")) {
+                mNameCorrect = false;
+                document.getElementById("mName").style.backgroundColor="#FFCCCC";
+                document.getElementById("mName").value="Must be filled out";
+            }   else if ((document.getElementById("mName").value.match(numbers)) || (document.getElementById("mName").value.match(format))) {
+                mNameCorrect = false;
+                document.getElementById("mName").style.backgroundColor="#FFCCCC";
+                document.getElementById("mName").value = "Name cannot contain numbers";
+            }   else {
+                document.getElementById("mName").style.backgroundColor = "";
+                mNameCorrect = true;
+
+            }
+            
+            /* Validate last name */
+            if ((document.getElementById("lName").value=="") || (document.getElementById("lName").value=="Must be filled out") || (document.getElementById("lName").value == "Name cannot contain numbers")) {
+                lNameCorrect = false;
+                document.getElementById("lName").style.backgroundColor="#FFCCCC";
+                document.getElementById("lName").value="Must be filled out";
+            } else if ((document.getElementById("lName").value.match(numbers)) || (document.getElementById("lName").value.match(format))) {
+                lNameCorrect = false;
+                document.getElementById("lName").style.value="#FFCCCC"
+                document.getElementById("lName").value="Name cannot contain numbers";
+            } else {
+                document.getElementById("lName").style.backgroundColor="";
+                lNameCorrect = true;
+            }
+
+            /* Validate patient number */
+            if ((document.getElementById("patientNumber").value=="") || (!document.getElementById("patientNumber").value.match(numbers))) {
+                var patientNumberCorrect = false;
+                document.getElementById("patientNumber").style.backgroundColor="#FFCCCC";
+                document.getElementById("patientNumber").value="Must be numbers"
+
+            } else {
+                document.getElementById("patientNumber").style.backgroundColor="";
+                patientNumberCorrect = true;
+            }
+
+            /* Validate type of vaccine */
+            if (document.getElementById("vaccine").value=="moderna" || document.getElementById("vaccine").value=="pfizer" || document.getElementById("vaccine").value=="johnson&johnson" ) {
+                document.getElementById("vaccine").style.backgroundColor="";
+                vaccineCorrect = true;
+            } else {
+                vaccineCorrect = false;
+                document.getElementById("vaccine").style.backgroundColor="#FFCCCC";
+                document.getElementById("vaccine").value=="Select an option";
+            }
+
+            /* Validate street address */
+            if ((document.getElementById("street").value=="") || (document.getElementById("street").value=="Must be filled out") || (document.getElementById("street").value=="Invalid symbols included")) {
+                streetCorrect = false;
+                document.getElementById("street").style.backgroundColor="#FFCCCC";
+                document.getElementById("street").value="Must be filled out";
+                
+            } else if (document.getElementById("street").value.match(streetFormat)) {
+                streetCorrect = false;
+                document.getElementById("street").style.value="#FFCCCC"
+                document.getElementById("street").value="Invalid symbols included";
+                
+            } else {
+                document.getElementById("street").style.backgroundColor="";
+                streetCorrect = true;
+            }
+
+            /* Validate zipcode */
+            if ((document.getElementById("zip").value=="") || (!document.getElementById("zip").value.match(numbers))) {
+                var zipCorrect = false;
+                document.getElementById("zip").style.backgroundColor="#FFCCCC";
+                document.getElementById("zip").value="Must be numbers"
+
+            }   else if (!(document.getElementById("zip").value.length == 5)) {
+                var zipCorrect = false;
+                document.getElementById("zip").style.backgroundColor="#FFCCCC";
+                document.getElementById("zip").value="Zipcode must be 5 digits"
+            } else {
+                document.getElementById("zip").style.backgroundColor="";
+                zipCorrect = true;
+            }
+
+
+            /* Check everything is validated */
+            if (fNameCorrect == true && lNameCorrect == true && mNameCorrect == true && patientNumberCorrect == true && vaccineCorrect == true && zipCorrect && streetCorrect) {
+                window.location.href="test.html";
+            }
+
+        
+        }
+
+    </script>
+</body>
+</html>
