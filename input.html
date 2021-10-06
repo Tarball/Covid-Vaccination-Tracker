@@ -13,35 +13,66 @@
     <!-- Container for vaccination form -->
     <div id="vaccForm">
         <form id="vaccInfo">
-            <label for="fName">First Name</label><br>
-            <input type="text" id="fName" name="fName"><br>
-            <label for="mName">Middle Name</label><br>
-            <input type="text" id="mName" name="mName"><br>
-            <label for="lName">Last Name</label><br>
-            <input type="text" id="lName" name="lName"><br>
-            <label for="dob">Date of Birth</label><br>
-            <input type="text" id="dob" name="dob"><br>
-            <label for="patientNumber">Patient Number</label><br>
-            <input type="text" id="patientNumber" name="patientNumber"><br>
-            <label for="vaccine">Vaccine Manufacturer</label><br>
-            <select id="vaccine" name="vaccine" class="required">
-                <option disabled selected value> -- select an option -- </option>
-                <option value="moderna">Moderna</option>
-                <option value="pfizer">Pfizer</option>
-                <option value="johnson&johnson">Johnson and Johnson</option>
-            </select><br>
-            <label for="vDate1">Date of first vaccination</label><br>
-            <input type="text" id="vDate1" name="vDate1"><br>
-            <label for="vDate2">Date of second vaccination</label><br>
-            <input type="text" id="vDate2" name="vDate2"><br>
-            <label for="street">Street Name</label><br>
-            <input type="text" id="street" name="street"><br>
-            <label for="state">State</label><br>
-            <input type="text" id="state" name="state"><br>
-            <label for="zip">Zipcode</label><br>
-            <input type="text" id="zip" name="zip"><br>
-
-            <button type="button" onclick="confirm()">Submit</button>   
+            <div class="labelbox">
+                <label for="fName">First Name</label>
+                <input type="text" id="fName" name="fName">
+            </div>
+            <div class="labelbox">
+                <label for="mName">Middle Name</label>
+                <input type="text" id="mName" name="mName">
+            </div>
+            <div class="labelbox">
+                <label for="lName">Last Name</label>
+                <input type="text" id="lName" name="lName">
+            </div>
+            <p>__________________________________</p>
+            <div class="labelbox">
+                <label for="dob">Date of Birth</label>
+                <input type="text" id="dob" name="dob">
+            </div>
+            <div class="labelbox">
+                <label for="patientNumber">Patient Number</label>
+                <input type="text" id="patientNumber" name="patientNumber">
+            </div>
+            <div class="labelbox">
+                <label for="vaccine">Vaccine Manufacturer</label>
+                <select id="vaccine" name="vaccine" class="required">
+                    <option disabled selected value> -- select an option -- </option>
+                    <option value="moderna">Moderna</option>
+                    <option value="pfizer">Pfizer</option>
+                    <option value="johnson&johnson">Johnson and Johnson</option>
+                </select>
+            </div>
+            <p>__________________________________</p>
+            <div class="labelbox2">
+                <label for="vDate1">Date of first vaccination</label>
+                <input type="text" id="vDate1" name="vDate1">
+            </div>
+            <div class="labelbox2">
+                <label for="vDate2">Date of second vaccination</label>
+                <input type="text" id="vDate2" name="vDate2">
+            </div>
+            <p>__________________________________</p>
+            <div class="labelbox">
+                <label for="street">Street Name</label>
+                <input type="text" id="street" name="street">
+            </div>
+            <div class="labelbox">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state">
+            </div>
+            <div class="labelbox">
+                <label for="zip">Zipcode</label>
+                <input type="text" id="zip" name="zip">
+            </div>
+            <p>__________________________________</p>
+            <div class="labelbox3">
+                <label for="notes">Any unusual side effects?</label>
+                <textarea id="notes" name="notes" rows="4" cols="50">
+                </textarea>
+            </div>
+            <br>
+            <button type="button" id="submit" onclick="confirm()">Submit</button>   
         </form>
     </div>
     <script>
