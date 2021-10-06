@@ -7,12 +7,16 @@ body {
 
 #vaccForm {
     background-color: lightgray;
-    font-size: 20px;
+    font-size: 25px;
     width: 40%;
+    min-width: 425px;
     margin: auto;
     padding: 15px;
     margin-top: 50px;
     border-radius: 25px;
+    text-align: center;
+    
+    
 }
 
 #vaccForm label {
@@ -33,3 +37,66 @@ body {
 #vaccForm button {
     height: 30px;
 }
+
+
+textarea {
+    max-width: 350px;
+    min-width: 350px;
+
+    max-height: 100px;
+    min-height: 75px;
+}
+
+.labelbox {
+    display: inline-block;
+    /*width: 30%;*/
+    width: 225px;
+    height: 80px;
+    margin: 5px;
+    background-color: #C0C0C0;
+    padding: 3px;
+    border-radius: 25px;
+}
+
+.labelbox2 {
+    display: inline-block;
+    clear: left;
+    /*width: 45%;*/
+    width: 300px;
+    height: 80px;
+    margin: 5px;
+    background-color: #C0C0C0;
+    padding: 3px;
+    border-radius: 25px;
+}
+
+.labelbox3 {
+    display: inline-block;
+    clear: left;
+    /*width: 60%;*/
+    width: 400px;
+    height: 120px;
+    margin: 5px;
+    background-color: #C0C0C0;
+    padding: 3px;
+    border-radius: 25px;
+}
+
+label, input {
+    display: block;
+    margin: auto;
+}
+
+#submit {
+    width: 250px;
+}
+
+@media screen and (max-width: 1000px) {
+    .labelbox, .labelbox2 {
+        display: block;
+        clear: left;
+        width: 400px;
+    }
+}
+
+
