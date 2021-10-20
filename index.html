@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Log in</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
+    
+    <!-- HTML and Javascript code written by Dan Bartels -->
+
+</head>
+<body>
+    <!-- Containter for the log in form -->
+    <div id="loginDiv">
+        <form id="loginForm">
+            <p>Please enter your username and password to proceed.</p>
+            <label for="nameLogin">Username:</label>
+            <input input="text" id="nameLogin" name="nameLogin"><br>
+
+            <label for="passwordLogin">Password:</label>
+            <input type="text" id="passwordLogin" name="passwordLogin"><br>
+
+            <!-- Calls the submitLogin function -->
+            <button type="button" onclick="submitLogin()">Log in</button>
+        </form>
+    </div>
+    <script>
+        function submitLogin() {
+
+            // Variables to assign if a parameter is correct or not
+            var nameCorrect = false;
+            var passCorrect = false;
+
+            // Validation for login name checks to make sure fields are filled out.
+            if ((document.getElementById("nameLogin").value=="") || (document.getElementById("nameLogin").value=="Must be filled out")) {
+                nameCorrect = false;
+                document.getElementById("nameLogin").style.backgroundColor="#FFCCCC";
+                document.getElementById("nameLogin").value="Must be filled out";
+            } else {
+                document.getElementById("nameLogin").style.backgroundColor="";
+                nameCorrect=true;
+            }
+
+            // Validation for password checks to make sure fields are filled out.
+            if ((document.getElementById("passwordLogin").value=="") || (document.getElementById("passwordLogin").value=="Must be filled out")) {
+                passCorrect = false;
+                document.getElementById("passwordLogin").style.backgroundColor="#FFCCCC";
+                document.getElementById("passwordLogin").value="Must be filled out";
+            } else {
+                document.getElementById("passwordLogin").style.backgroundColor="";
+                passCorrect=true;
+            }
+
+            // Check if everything came out right 
+            if (nameCorrect==true && passCorrect==true) {
+                document.location.href="main.html"
+            }
+        }
+    </script>
+</body>
+</html>
