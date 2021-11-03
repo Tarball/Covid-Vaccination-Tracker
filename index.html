@@ -9,7 +9,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
 
     <!-- HTML and Javascript code written by Dan Bartels -->
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -58,6 +58,15 @@
             if (nameCorrect == true && passCorrect == true) {
                 document.location.href = "main.html"
             }
+
+            $.post("checkuser.php", $("#loginForm").serialize(), function (data) {
+                console.log(data);
+                if (data == '1') {
+                    window.location = 'main.php';
+                } else {
+                    alert('Invalid credentials!!!!!!!!!!');
+                }
+            });
         }
     </script>
 </body>
